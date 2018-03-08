@@ -7,12 +7,13 @@ require_relative 'models/data-sorter.rb'
 class ApplicationController < Sinatra::Base
 
   get '/' do
-    puts params
     erb :index
   end
 
 
   post '/questions' do 
+    puts params
+    @user_hash = get_trivia_questions()
     erb :questions
     
     
