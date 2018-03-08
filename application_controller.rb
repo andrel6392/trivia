@@ -2,11 +2,12 @@ require 'dotenv/load'
 require 'bundler'
 Bundler.require
 
-require_relative 'models/model.rb'
+require_relative 'models/data-sorter.rb'
 
 class ApplicationController < Sinatra::Base
 
   get '/' do
+    puts params
     erb :index
   end
 

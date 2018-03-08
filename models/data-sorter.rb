@@ -4,7 +4,8 @@ require 'pp'
 
 
 def get_trivia_questions(topic_number, question_number)
-   url = "https://qriusity.com/v1/categories/#{topic_number}/questions?page=2&limit=#{question_number}"
+   rand_page = rand(10)
+   url = "https://qriusity.com/v1/categories/#{topic_number}/questions?page=#{rand_page}&limit=#{question_number}"
    uri = URI(url)
    response = Net::HTTP.get(uri)
    result = JSON.parse(response)
@@ -28,4 +29,4 @@ def get_trivia_questions(topic_number, question_number)
    q_and_a
 end
 
-# pp get_trivia_questions(2,2)
+# pp get_trivia_questions(2,5)
