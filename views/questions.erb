@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name='viewport'content='width=device-width, inital scale =1'>
-    <title>title</title>
+    <title>Trivia Questions</title>
     <!-- bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery -->
@@ -19,18 +19,20 @@
   <body>
     
     <div class="container-fluid">
-      <h1> </h1>
-      <p>Q1.</p>
-    
     <form method = "post" action= "/results">
-        
-        <input type="radio" name="q1" value="q1"> q1<br>
-        <input type="radio" name="q2" value="q2"> q2<br>
-        <input type="radio" name="q3" value="q3"> q3<br>
-        <input type="radio" name="q34" value="q3"> q4<br>
-         <br><br>
-       <input type= "submit" class= "btn btn-primary btn-lg" > 
-        
+      <%counter = 1%>
+      <%@user_hash_keys.each do |questions|%>
+        <h3><%= questions %></h3>
+        <%@user_hash.each do |question, answers|%>
+          <%if questions == question%>
+            <%answers.each do |options|%>
+              <input type="radio" name="<%="options_#{counter}"%>" value="<%=options%>"><%=options%><br>
+              <% counter += 1 %>
+            <%end%>
+          <%end%>
+        <%end%>
+      <%end%>
+      <input type= "submit" class= "btn btn-primary btn-lg" > 
     </form>
       
     </div>

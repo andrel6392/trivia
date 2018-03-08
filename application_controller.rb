@@ -16,6 +16,8 @@ class ApplicationController < Sinatra::Base
     @user_topic = params["trivia-topic"]
     @user_num = params["trivia-qnumber"]
     @user_hash = get_trivia_questions(@user_topic, @user_num)
+    @user_hash_keys = @user_hash.keys
+    @user_hash_keys.shift
     erb :questions
   end 
   

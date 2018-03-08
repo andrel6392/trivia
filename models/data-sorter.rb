@@ -12,7 +12,6 @@ def get_trivia_questions(topic_number, question_number)
    
    #sort data and grab questions with choices, and answers
    q_and_a = {"answers" => []}
-   correct_answers = []
    question_name = ""
    result.each do |question_info|
       question_info.each do |info_key,info_value|
