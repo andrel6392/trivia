@@ -10,7 +10,7 @@ def get_trivia_questions(topic_number, question_number)
    result = JSON.parse(response)
    
    #sort data and grab questions with choices, and answers
-   q_and_a = {}
+   q_and_a = {"answers" => []}
    correct_answers = []
    question_name = ""
    result.each do |question_info|
@@ -21,12 +21,11 @@ def get_trivia_questions(topic_number, question_number)
          elsif info_key.include?("option")
             q_and_a[question_name] << info_value
          elsif info_key.include?("answers")
-            correct_answers << info_value
+            q_and_a["answers"] << info_value
          end
       end
    end
-   return correct_answers
-   return q_and_a
+   q_and_a
 end
 
-pp get_trivia_questions(2,2)
+# pp get_trivia_questions(2,2)
