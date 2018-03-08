@@ -13,10 +13,10 @@ class ApplicationController < Sinatra::Base
 
   post '/questions' do 
     puts params
-    @user_hash = get_trivia_questions()
+    @user_topic = params["trivia-topic"]
+    @user_num = params["trivia-qnumber"]
+    @user_hash = get_trivia_questions(@user_topic, @user_num)
     erb :questions
-    
-    
   end 
   
   post '/results' do 
