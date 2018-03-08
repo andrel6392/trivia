@@ -3,8 +3,8 @@ require 'json'
 require 'pp'
 
 
-def get_trivia_questions(topic, question_number)
-   url = "https://qriusity.com/v1/questions?page=2&limit=5"
+def get_trivia_questions(topic_number, question_number)
+   url = "https://qriusity.com/v1/categories/#{topic_number}/questions?page=2&limit=#{question_number}"
    uri = URI(url)
    response = Net::HTTP.get(uri)
    result = JSON.parse(response)
@@ -25,6 +25,8 @@ def get_trivia_questions(topic, question_number)
          end
       end
    end
+   return correct_answers
+   return q_and_a
 end
 
-pp q_and_a
+pp get_trivia_questions(2,2)

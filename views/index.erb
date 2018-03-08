@@ -20,25 +20,24 @@
     
     <div class="container-fluid">
       <h1>Welcome to Trivia! </h1>
-      <h3> Please select a category of questions that you would like to answer! <br> 
-        <form method = "post" action= "/questions">
-          <select name="trivia-option" value="Choose your trivia type">
-            <option value="Hip Hop Music">Hip-Hop Music</option>
-            <option value="Movie Quotes">Movie Quotes</option>
-            <option value="Animated Movies">Animated Movies</option>
-            <option value="Basketball">Basketball</option>
-            <option value="Physics">Physics</option>
-          </select>
-      <h3> How many questions would you like to answer? </h3>
-        <select name="trivia-option" value="Number of Questions">
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7"> 7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-      </h3>
+      <form method = "post" action="/questions">
+        <h3> Please select a category of questions that you would like to answer! <br> 
+        <select name="trivia-option" value="trivia_cat">
+          <option value="7">Hip-Hop Music</option>
+          <option value="11">Movie Quotes</option>
+          <option value="2">Animated Movies</option>
+          <option value="1">Basketball</option>
+          <option value="8">Physics</option>
+        </select>
+        <h3> How many questions would you like to answer? </h3>
+        <select name="trivia-option" value="q_numbers">
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7"> 7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
        <input type="submit" value= "Let's Trivia" class= "btn btn-primary btn-lg" >
       </form>
       </div>
