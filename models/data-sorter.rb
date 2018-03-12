@@ -1,6 +1,8 @@
 require 'net/http'
 require 'json'
 require 'pp'
+require 'openssl'
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 
 def get_trivia_questions(topic_number, question_number)

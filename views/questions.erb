@@ -27,8 +27,8 @@
           <%if questions == question%>
             <%answers.each do |options|%>
               <input type="radio" name="<%="options_#{counter}"%>" value="<%=options%>"><%=options%><br>
-              <% counter += 1 %>
             <%end%>
+            <% counter += 1 %>
           <%end%>
         <%end%>
       <%end%>
