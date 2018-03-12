@@ -22,7 +22,11 @@ class ApplicationController < Sinatra::Base
   end 
   
   post '/results' do 
+    @user_answer = params
+    puts @user_hash = params[:user_hash]
+    puts @user_hash_keys= params[:user_hash_keys]
     erb :results
+    
   end 
 
 end
