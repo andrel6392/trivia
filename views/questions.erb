@@ -16,12 +16,17 @@
     <!-- custom JS -->
     <script src="js/script.js"></script>
   </head>
+  <style>
+    .hide_pls {
+      visibility = hidden;
+      background-color= red;
+    }
+  </style>
   <body>
-    
     <div class="container-fluid">
     <form method = "post" action= "/results">
       <%counter = 1%>
-      <%@user_hash_keys.each do |questions|%>
+      <%@quiz_questions.each do |questions|%>
         <h3><%= questions %></h3>
         <%@user_hash.each do |question, answers|%>
           <%if questions == question%>
@@ -32,13 +37,11 @@
           <%end%>
         <%end%>
       <%end%>
+      <input name="quiz_questions" value=<%= @quiz_questions %> hidden="yes">
+      <input name="quiz_options" value=<%= @quiz_options %> hidden="yes">
+      <input name="quiz_answers" value=<%= @quiz_answers %> hidden="yes">
       <input type= "submit" class= "btn btn-primary btn-lg" > 
-      <input name="text" value ="<%=@user_hash_keys%>" hidden="yes">
-      <input name="text2"value ="<%=@user_hash%>" hidden="yes">
-      
     </form>
-      
     </div>
-    
   </body>
 </html>
