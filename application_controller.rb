@@ -6,6 +6,7 @@ Bundler.require
 require_relative 'models/data-sorter.rb'
 
 class ApplicationController < Sinatra::Base
+enable :sessions
 
   get '/' do
     erb :index
@@ -20,17 +21,18 @@ class ApplicationController < Sinatra::Base
     @quiz_questions.shift 
     @quiz_options = @user_hash.values #2 dimensional array of options for each question
     @quiz_answers = @quiz_options.shift #answers for questions
-    puts "Questions:"
-    pp @quiz_questions
-    puts "Options:" 
-    pp @quiz_options
-    puts "Answers:"
-    pp @quiz_answers
+    session[:user_hash] = @user_hash
+    # puts "Questions:"
+    # pp @quiz_questions
+    # puts "Options:" 
+    # pp @quiz_options
+    # puts "Answers:"
+    # pp @quiz_answers
     erb :questions
   end 
   
   post '/results' do
-    puts params
+    puts session[:user_hash]
     @questions = params["quiz_questions"]
     erb :results
     
