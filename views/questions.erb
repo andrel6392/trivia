@@ -16,12 +16,6 @@
     <!-- custom JS -->
     <script src="js/script.js"></script>
   </head>
-  <style>
-    .hide_pls {
-      visibility = hidden;
-      background-color= red;
-    }
-  </style>
   <body>
     <div class="container-fluid">
     <form method = "post" action= "/results">
@@ -37,9 +31,6 @@
           <%end%>
         <%end%>
       <%end%>
-      <input name="quiz_questions" value='<%= @quiz_questions %>' hidden="yes">
-      <input name="quiz_options" value='<%= @quiz_options %>' hidden="yes">
-      <input name="quiz_answers" value='<%= @quiz_answers %>' hidden="yes">
       <input type= "submit" class= "btn btn-primary btn-lg" > 
     </form>
     </div>

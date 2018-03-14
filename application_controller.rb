@@ -4,9 +4,12 @@ require 'pp'
 Bundler.require
 
 require_relative 'models/data-sorter.rb'
+require_relative 'models/quiz-calculator.rb'
 
 class ApplicationController < Sinatra::Base
 enable :sessions
+set :session_secret, 'christy li' 
+
 
   get '/' do
     erb :index
@@ -17,23 +20,19 @@ enable :sessions
     @user_topic = params["trivia-topic"]
     @user_num = params["trivia-qnumber"]
     @user_hash = get_trivia_questions(@user_topic, @user_num)
-    @quiz_questions = @user_hash.keys
-    @quiz_questions.shift 
-    @quiz_options = @user_hash.values #2 dimensional array of options for each question
-    @quiz_answers = @quiz_options.shift #answers for questions
+    @quiz_questions = @user_hash.keys.drop(1)
+    session[:trivia_qnumber] = @user_num
+    session[:quiz_options] = @user_hash.values.drop(1)
     session[:user_hash] = @user_hash
-    # puts "Questions:"
-    # pp @quiz_questions
-    # puts "Options:" 
-    # pp @quiz_options
-    # puts "Answers:"
-    # pp @quiz_answers
+    session[:quiz_questions] = @quiz_questions
+    session[:quiz_answers] = @user_hash.values.shift
     erb :questions
   end 
   
   post '/results' do
-    puts session[:user_hash]
-    @questions = params["quiz_questions"]
+    @correct_answers = quiz_checker(session[:quiz_answers],params.values,session[:quiz_options])
+    @user_hash = session[:user_hash]
+    @quiz_questions = session[:quiz_questions]
     erb :results
     
   end 
