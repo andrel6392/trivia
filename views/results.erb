@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name='viewport'content='width=device-width, inital scale =1'>
-    <title>title</title>
+    <title>Results</title>
     <!-- bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery -->
@@ -19,9 +19,21 @@
   <body>
     
     <div class="container-fluid">
-      <h1>Results</h1> 
+      <h1>Quiz Results</h1>
+      <h3>You got <%= @correct_answers[:correct] %> out of <%=@correct_answers[:total_questions] %> questions correct </h3>
       
-      <h3><%= @questions %></h3>
+      <%counter = 1%>
+      <% @quiz_questions.each do |questions| %>
+        <h3><%= questions %></h3>
+        <% @user_hash.each do |question, answers| %>
+          <% if questions == question %>
+            <% answers.each do |options| %>
+              <p><%= options %></p>
+            <%end%>
+            <% counter += 1 %>
+          <%end%>
+        <%end%>
+      <%end%>
     </div>
     
   </body>
