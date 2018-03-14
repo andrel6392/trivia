@@ -6,6 +6,7 @@ require_relative 'models/data-sorter.rb'
 
 class ApplicationController < Sinatra::Base
 
+
   get '/' do
     erb :index
   end
