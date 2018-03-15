@@ -33,6 +33,9 @@ set :session_secret, 'christy li'
     @correct_answers = quiz_checker(session[:quiz_answers],params.values,session[:quiz_options])
     @user_hash = session[:user_hash]
     @quiz_questions = session[:quiz_questions]
+    @quiz_options = session[:quiz_options]
+    @user_options = params.values
+    @quiz_answers = session[:quiz_answers]
     erb :results
     
   end 
