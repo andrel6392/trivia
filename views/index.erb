@@ -16,12 +16,15 @@
     <!-- custom JS -->
     <script src="js/script.js"></script>
   </head>
-  <body>
-    
-    <div class="container-fluid">
-      <h1>Welcome to Trivia! </h1>
-      <form method = "post" action="/questions">
-        <h3> Please select a category of questions that you would like to answer! <br> 
+  <bodyid="page-top">
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+        <div class="intro-text">
+          <div class="intro-lead-in">Welcome To Trivia!</div>
+          <form method = "post" action="/questions">
+          <h3> Please select a category of questions that you would like to answer! <br> 
         <select name="trivia-topic">
           <option value="7">Canada</option>
           <option value="11">Movie Quotes</option>
@@ -29,7 +32,7 @@
           <option value="1">Basketball</option>
           <option value="8">Science</option>
         </select>
-         </h3>
+           </h3>
         <h3> How many questions would you like to answer? <br>
         <select name="trivia-qnumber">
           <option value="5">5</option>
@@ -43,7 +46,49 @@
         <br>
        <input type="submit" value= "Let's Trivia" class= "btn btn-primary btn-lg" >
       </form>
+        </div>
       </div>
-    
+    </header>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; Your Website 2018</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+      </div>
   </body>
 </html>
