@@ -16,19 +16,34 @@
     <!-- custom JS -->
     <script src="js/script.js"></script>
   </head>
+  <style>
+    
+    .incorrect_answer {
+      color: red;
+    }
+    .correct_answer {
+      color: green;
+    }
+  </style>
   <body>
     
     <div class="container-fluid">
       <h1>Quiz Results</h1>
       <h3>You got <%= @correct_answers[:correct] %> out of <%=@correct_answers[:total_questions] %> questions correct </h3>
       
-      <%counter = 1%>
+      <%counter = 0%>
       <% @quiz_questions.each do |questions| %>
         <h3><%= questions %></h3>
         <% @user_hash.each do |question, answers| %>
           <% if questions == question %>
             <% answers.each do |options| %>
-              <p><%= options %></p>
+              <% if options == @quiz_options[counter][@quiz_answers[counter]-1] %>
+                <p class="correct_answer"><%= options %></p>
+              <% elsif options == @user_options[counter] && @user_options[counter] != @quiz_options[counter][@quiz_answers[counter]-1] %>
+                <p class="incorrect_answer"><%= options %></p>
+              <% else %>
+                <p><%= options %></p>
+              <%end%>
             <%end%>
             <% counter += 1 %>
           <%end%>
