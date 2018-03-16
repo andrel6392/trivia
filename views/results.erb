@@ -30,7 +30,6 @@
     <div class="container-fluid">
       <h1>Quiz Results</h1>
       <h3>You got <%= @correct_answers[:correct] %> out of <%=@correct_answers[:total_questions] %> questions correct </h3> <%# print out the amount of questions the user answered correctly%>
-      
       <%counter = 0%>
       <% @quiz_questions.each do |questions| %>
         <h3><%= questions %></h3>
