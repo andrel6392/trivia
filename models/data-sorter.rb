@@ -12,7 +12,7 @@ def get_trivia_questions(topic_number, question_number)
    response = Net::HTTP.get(uri)
    result = JSON.parse(response)
    
-   #sort data and grab questions with choices, and answers
+   #sort data and grab questions with choices, and answers into a hash
    q_and_a = {"answers" => []}
    question_name = ""
    result.each do |question_info|
@@ -29,5 +29,3 @@ def get_trivia_questions(topic_number, question_number)
    end
    q_and_a
 end
-
-# pp get_trivia_questions(2,5)

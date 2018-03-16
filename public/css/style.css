@@ -1,19 +1,13 @@
 header.masthead {
   text-align: center;
   color: black;
-  background-image: url("../img/trivia-background.png");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  /*background: url("../img/yellow-background.png") no-repeat center;*/
   background-size: cover;
 }
 
 header.masthead .intro-text {
-  padding-top: 150px;
-  padding-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 header.masthead .intro-text .intro-lead-in {
@@ -78,7 +72,7 @@ header.question {
   font-size: 15px;
   text-align: left;
   color: black;
-  background-image: url("../img/trivia-background.png");
+  /*background-image: url("../img/trivia-background.png");*/
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -92,7 +86,7 @@ header.result {
   font-size: 15px;
   text-align: left;
   color: black;
-  background-image: url("../img/trivia-background.png");
+  /*background-image: url("../img/trivia-background.png");*/
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -102,3 +96,45 @@ header.result {
   background-size: cover;
 }
 
+/*#index_jumbotron {*/
+/*  background: rgba(0, 0, 0, 0.5);*/
+/*  animation: appear 2s;*/
+/*  animation-fill-mode: forwards;*/
+/*  color: white;*/
+/*}*/
+
+.jumbotron {
+  /*background: rgba(200, 54, 54, 0.5);*/
+  animation: appear 2s;
+  animation-fill-mode: forwards;
+  ;
+}
+
+/*.questions {*/
+/*  padding-top: 5px;*/
+/*  padding-bottom: 5px;*/
+/*  color: black;*/
+/*}*/
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform-origin: 50% 50%;
+        transform: scale(2);
+        filter: blur(100px)
+    }
+    100% {
+        opacity: 1;
+        transform-origin: 50% 50%;
+        transform: scale(1);
+        filter: blur(0px)
+    }
+}
+
+h2 {
+  text-align: center;
+}
+
+option {
+  color: black;
+}

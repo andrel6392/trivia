@@ -12,11 +12,38 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
     <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!--<link rel="stylesheet" href="css/style.css" type="text/css">-->
     <!-- custom JS -->
     <script src="js/script.js"></script>
-  </head>
-  <style>
+    <style>
+    .non_question {
+      text-align: center;
+    }
+    
+    .jumbotron {
+      background: rgba(0, 0, 0, 0.15);
+      animation: appear 2s;
+      animation-fill-mode: forwards;
+      padding: 15px;
+      margin: 5px;
+      color: black;
+      ;
+    }
+    
+    @keyframes appear {
+        0% {
+            opacity: 0;
+            transform-origin: 50% 50%;
+            transform: scale(2);
+            filter: blur(100px)
+        }
+        100% {
+            opacity: 1;
+            transform-origin: 50% 50%;
+            transform: scale(1);
+            filter: blur(0px)
+        }
+    }
     
     .incorrect_answer {
       color: red; <%#when the user chooses the wrong answer it will show their choice in red %>
@@ -24,14 +51,22 @@
     .correct_answer {
       color: green; <%#if the user chooses the correct answer it will show up green %>
     }
-  </style>
+    
+    </style>
+  </head>
   <body>
     <header class="result">
     <div class="container-fluid">
-      <h1>Quiz Results</h1>
-      <h3>You got <%= @correct_answers[:correct] %> out of <%=@correct_answers[:total_questions] %> questions correct </h3> <%# print out the amount of questions the user answered correctly%>
+      <div class="jumbotron">
+      <h1 class="non_question">Quiz Results</h1>
+      
+      <!--print out the amount of questions the user answered correctly-->
+      <h3 class="non_question">You got <%= @correct_answers[:correct] %> out of <%=@correct_answers[:total_questions] %> questions correct </h3> 
+      
+      <!--same as questions.erb iteration-->
       <%counter = 0%>
       <% @quiz_questions.each do |questions| %>
+        <div class="jumbotron">
         <h3><%= questions %></h3>
         <% @user_hash.each do |question, answers| %>
           <% if questions == question %>
@@ -47,7 +82,9 @@
             <% counter += 1 %>
           <%end%>
         <%end%>
+        </div>
       <%end%>
+      </div>
     </div>
     </header>
     

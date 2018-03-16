@@ -12,28 +12,67 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
     <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!--<link rel="stylesheet" href="css/style.css" type="text/css">-->
     <!-- custom JS -->
     <script src="js/script.js"></script>
+    <style>
+    .non_question {
+      text-align: center;
+    }
+    
+    .jumbotron {
+      background: rgba(0, 0, 0, 0.15);
+      animation: appear 2s;
+      animation-fill-mode: forwards;
+      padding: 15px;
+      margin: 5px;
+      color: black;
+      ;
+    }
+    
+    @keyframes appear {
+        0% {
+            opacity: 0;
+            transform-origin: 50% 50%;
+            transform: scale(2);
+            filter: blur(100px)
+        }
+        100% {
+            opacity: 1;
+            transform-origin: 50% 50%;
+            transform: scale(1);
+            filter: blur(0px)
+        }
+    }
+    .button {
+      text-align: center;
+    }
+    
+    </style>
   </head>
   <body>
     <header class="question">
     <div class="container-fluid">
-    <form method = "post" action= "/results">
-      <%counter = 1%>
-      <%@quiz_questions.each do |questions|%> <% #using iterationn to print out the question from the hash%>
-        <h3><%= questions %></h3> 
-        <%@user_hash.each do |question, answers|%>
-          <%if questions == question%> <% #if the question matches the question in the hash it will then print out the answer choices%>
-            <%answers.each do |options|%>
-              <input type="radio" name="<%="options_#{counter}"%>" value="<%=options%>"><%=options%><br> 
+      <div class="jumbotron">
+        <h2 class="non_question">Choose your answers wisely. Don't use Google. Good Luck</h2>
+        <form method = "post" action= "/results">
+          <%counter = 1%>
+          <%@quiz_questions.each do |questions|%> <% #using iterationn to print out the question from the hash%>
+            <div class="jumbotron questions">
+            <h3><%= questions %></h3> 
+            <%@user_hash.each do |question, answers|%>
+              <%if questions == question%> <% #if the question matches the question in the hash it will then print out the answer choices%>
+                <%answers.each do |options|%>
+                  <h4><input type="radio" name="<%="options_#{counter}"%>" value="<%=options%>"> <%=options%></h4> 
+                <%end%>
+                <% counter += 1 %>
+              <%end%>
             <%end%>
-            <% counter += 1 %>
+            </div>
           <%end%>
-        <%end%>
-      <%end%>
-      <input type= "submit" class= "btn btn-primary btn-lg" > 
-    </form>
+          <input type= "submit" class= "btn btn-warning btn-lg" > 
+        </form>
+      </div>
     </div>
     </head>
     

@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <!-- custom JS -->
     <script src="js/script.js"></script>
+    <style>
+      
+    </style>
   </head>
 
     <!-- Header -->
     <header class="masthead">
       <div class="container">
-        <div class="intro-text">
+        <div id="index_jumbotron" class="intro-text jumbotron">
           <div class="intro-lead-in">Welcome To Trivia!</div>
           <form method = "post" action="/questions"> 
-          <h3> Please select a category of questions that you would like to answer! <br> 
+          <h3> Please select a category of questions that you would like to answer! <br> <br> 
         <select name="trivia-topic">
           <option value="7">Canada</option> <%#the value is the number%> that corresponds to the topic in the hash  
           <option value="11">Movie Quotes</option>
@@ -32,7 +35,7 @@
           <option value="8">Science</option>
         </select>
            </h3>
-        <h3> How many questions would you like to answer? <br>
+        <h3> How many questions would you like to answer? <br> <br> 
         <select name="trivia-qnumber">
           <option value="5">5</option>
           <option value="6">6</option>
@@ -43,7 +46,7 @@
         </select>
          </h3>
         <br>
-        <input type="submit" value= "Let's Trivia" class= "btn btn-primary btn-lg" >
+        <input type="submit" value= "Let's Trivia" class= "btn btn-warning btn-lg" >
       </form>
         </div>
       </div>
