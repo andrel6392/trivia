@@ -19,17 +19,17 @@
   <style>
     
     .incorrect_answer {
-      color: red;
+      color: red; <%#when the user chooses the wrong answer it will show their choice in red %>
     }
     .correct_answer {
-      color: green;
+      color: green; <%#if the user chooses the correct answer it will show up green %>
     }
   </style>
   <body>
     
     <div class="container-fluid">
       <h1>Quiz Results</h1>
-      <h3>You got <%= @correct_answers[:correct] %> out of <%=@correct_answers[:total_questions] %> questions correct </h3>
+      <h3>You got <%= @correct_answers[:correct] %> out of <%=@correct_answers[:total_questions] %> questions correct </h3> <%# print out the amount of questions the user answered correctly%>
       
       <%counter = 0%>
       <% @quiz_questions.each do |questions| %>

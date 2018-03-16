@@ -17,15 +17,17 @@
     <script src="js/script.js"></script>
   </head>
   <body>
+    
     <div class="container-fluid">
+    <div class = "questions"
     <form method = "post" action= "/results">
       <%counter = 1%>
-      <%@quiz_questions.each do |questions|%>
-        <h3><%= questions %></h3>
+      <%@quiz_questions.each do |questions|%> <% #using iterationn to print out the question from the hash%>
+        <h3><%= questions %></h3> 
         <%@user_hash.each do |question, answers|%>
-          <%if questions == question%>
+          <%if questions == question%> <% #if the question matches the question in the hash it will then print out the answer choices%>
             <%answers.each do |options|%>
-              <input type="radio" name="<%="options_#{counter}"%>" value="<%=options%>"><%=options%><br>
+              <input type="radio" name="<%="options_#{counter}"%>" value="<%=options%>"><%=options%><br> 
             <%end%>
             <% counter += 1 %>
           <%end%>
@@ -33,6 +35,49 @@
       <%end%>
       <input type= "submit" class= "btn btn-primary btn-lg" > 
     </form>
+    </div>
+    
+    
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; Your Website 2018</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
     </div>
   </body>
 </html>
