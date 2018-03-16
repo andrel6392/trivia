@@ -71,10 +71,12 @@
         <% @user_hash.each do |question, answers| %>
           <% if questions == question %>
             <% answers.each do |options| %>
+              <!--checks if the answer is correct-->
               <% if options == @quiz_options[counter][@quiz_answers[counter]-1] %>
-                <p class="correct_answer"><%= options %></p>
+                <p class="correct_answer"><%= options %></p>  <!--  makes the correct answer to the question green -->
+                <!--checks if the user put the incorrect answer-->
               <% elsif options == @user_options[counter] && @user_options[counter] != @quiz_options[counter][@quiz_answers[counter]-1] %>
-                <p class="incorrect_answer"><%= options %></p>
+                <p class="incorrect_answer"><%= options %></p>  <!--  makes the incorrect answer the user chose red -->
               <% else %>
                 <p><%= options %></p>
               <%end%>
