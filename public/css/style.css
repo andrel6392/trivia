@@ -78,7 +78,7 @@ header.question {
   font-size: 15px;
   text-align: left;
   color: black;
-  background-image: url("../img/question.png");
+  background-image: url("../img/trivia-background.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -92,7 +92,7 @@ header.result {
   font-size: 15px;
   text-align: left;
   color: black;
-  background-image: url("../img/question.png");
+  background-image: url("../img/trivia-background.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
